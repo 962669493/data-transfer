@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    askdata5:
+      username: bil893nsoi
+      password: y3wn#pq85nzwal
+      jdbc-url: jdbc:sqlserver://121.201.76.175;databaseName=askdata5;integratedSecurity=false;
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    askdata4:
+      username: bil893nsoi
+      password: y3wn#pq85nzwal
+      jdbc-url: jdbc:sqlserver://121.201.76.150;databaseName=askdata4;integratedSecurity=false;
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
