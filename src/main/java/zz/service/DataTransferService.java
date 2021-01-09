@@ -124,4 +124,33 @@ public class DataTransferService {
             }
         });
     }
+
+    public void export1() throws SQLException, IOException {
+        before();
+        askdata4JdbcTemplate.query(sql, new ResultSetExtractor<Object>() {
+            @Override
+            public Object extractData(ResultSet resultSet) throws SQLException, DataAccessException {
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                log.info("开始写入数据");
+                for (int j = 0, k = 0; resultSet.next(); j++) {
+                    if (j % MyConstants.FETCH_SIZE == 0) {
+                        k++;
+                        log.info("开始第[{}]个批次的写入", k);
+                    }
+                    List<Object> data = new ArrayList<>();
+                    for (int i = 1; i <= columnCount; i++) {
+                        String value = resultSet.getString(i);
+                        data.add(value);
+                    }
+                    try {
+                        IOUtils.writeLines(Lists.newArrayList(Joiner.on(MyConstants.ESC).useForNull("").join(data)), System.getProperty("line.separator"), output, MyConstants.CHART_SET);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return null;
+            }
+        });
+    }
 }

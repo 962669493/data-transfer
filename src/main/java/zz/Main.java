@@ -25,6 +25,7 @@ public class Main implements CommandLineRunner, ApplicationContextAware {
     @Override
     public void run(String... args) throws Exception {
         applicationContext.getBean(DataTransferService.class).export();
+        //applicationContext.getBean(DataTransferService.class).export1();
     }
 
     @Override
