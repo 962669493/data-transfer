@@ -9,7 +9,7 @@
         <version>2.2.10.RELEASE</version>
     </parent>
     <groupId>net.ask39</groupId>
-    <artifactId>data-migration</artifactId>
+    <artifactId>data-transfer</artifactId>
 
     <dependencies>
         <dependency>

@@ -106,7 +106,8 @@ public class DataTransferService {
                     for (int i = 1; i <= columnCount; i++) {
                         String value = resultSet.getString(i);
                         if(i == 10 && !StringUtils.isEmpty(value)){
-                            data.add(value.replaceAll("\n", MyConstants.SUB));
+                            String v1 = value.replaceAll("\r\n", MyConstants.SUB);
+                            data.add(v1.replaceAll("\n", MyConstants.SUB));
                         }else{
                             data.add(value);
                         }
