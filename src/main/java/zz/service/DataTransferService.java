@@ -107,7 +107,8 @@ public class DataTransferService {
                         String value = resultSet.getString(i);
                         if(i == 10 && !StringUtils.isEmpty(value)){
                             String v1 = value.replaceAll("\r\n", MyConstants.SUB);
-                            data.add(v1.replaceAll("\n", MyConstants.SUB));
+                            String v2 = v1.replaceAll("\n", MyConstants.SUB);
+                            data.add(v2.replaceAll("\r", MyConstants.SUB));
                         }else{
                             data.add(value);
                         }
